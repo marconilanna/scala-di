@@ -57,6 +57,8 @@ unsound-match              Pattern match may not be typesafe
 */
 
 libraryDependencies ++= Seq(
+	"org.mockito"                              % "mockito-core"             % "1.10.19"    % "test"
+,
 	"org.scalatest"                           %% "scalatest"                % "2.2.3"      % "test"
 )
 
