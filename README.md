@@ -5,8 +5,14 @@ Scala DI
 
 Simple, typesafe, boilerplate-free^H^H^H^Hreduced dependency injection for Scala.
 
-Dependency injection (DI) is a fancy name for passing arguments to constructors or parameters to functions.
-DI does not require anything especial, over-complicated. DI is just using parameters.
+Dependency injection (DI) is a fancy name for passing arguments to constructors or methods.
+DI does not require anything especial and over-complicated.
+DI is just using parameters.
+
+All patterns have safe and unsafe variants.
+Unsafe means that a default value for the dependency is provided automatically, which may then be overridden as needed.
+Safe means that the dependency is exposed in the API signature and has to always be explicitly provided.
+Unsafe makes the wiring simpler and easier at client side, while safe makes it, well, safer. :-)
 
 License
 -------
