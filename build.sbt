@@ -2,7 +2,7 @@ name := "scala-di"
 
 version := "0.1"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.5"
 
 scalaSource in Compile <<= baseDirectory(_ / "src")
 
