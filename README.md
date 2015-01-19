@@ -1,6 +1,8 @@
 Scala DI
 ========
 
+[![Build Status](https://travis-ci.org/marconilanna/scala-di.svg)](https://travis-ci.org/marconilanna/scala-di)
+
 Simple, typesafe, boilerplate-free^H^H^H^Hreduced dependency injection for Scala.
 
 Dependency injection (DI) is a fancy name for passing arguments to constructors or parameters to functions.
