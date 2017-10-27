@@ -18,13 +18,13 @@ package implicitssafe
 import service.Config
 
 trait ConfigModule {
-	def config: Config
+  def config: Config
 }
 
 object ConfigModule extends ConfigModule {
-	implicit val config = Config
+  implicit val config = Config
 }
 
 class Db(implicit config: Config) {
-	def connect = s"Connected as ${config.username}:${config.password}"
+  def connect = s"Connected as ${config.username}:${config.password}"
 }

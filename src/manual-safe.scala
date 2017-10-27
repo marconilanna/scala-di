@@ -18,5 +18,5 @@ package manualsafe
 import service.Config
 
 class Db(config: Config) {
-	def connect = s"Connected as ${config.username}:${config.password}"
+  def connect = s"Connected as ${config.username}:${config.password}"
 }

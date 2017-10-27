@@ -22,67 +22,67 @@ import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
 
 class ImplicitsTest extends FunSuite with MockitoSugar {
-	test("Default service") {
-		import ConfigModule.config
+  test("Default service") {
+    import ConfigModule.config
 
-		val db = new Db
+    val db = new Db
 
-		assert(db.connect === "Connected as root:1234")
-	}
+    assert(db.connect === "Connected as root:1234")
+  }
 
-	test("Alternative service") {
-		object ProdConfig extends Config {
-			def username = "prod"
-			def password = "code"
-		}
+  test("Alternative service") {
+    object ProdConfig extends Config {
+      def username = "prod"
+      def password = "code"
+    }
 
-		object ProdConfigModule extends ConfigModule {
-			implicit def config = ProdConfig
-		}
+    object ProdConfigModule extends ConfigModule {
+      implicit def config = ProdConfig
+    }
 
-		import ProdConfigModule.config
+    import ProdConfigModule.config
 
-		val db = new Db
+    val db = new Db
 
-		assert(db.connect === "Connected as prod:code")
-	}
+    assert(db.connect === "Connected as prod:code")
+  }
 
-	test("Alternative service - option 2") {
-		object ProdConfigModule extends ConfigModule {
-			implicit object config extends Config {
-				def username = "prod"
-				def password = "code"
-			}
-		}
+  test("Alternative service - option 2") {
+    object ProdConfigModule extends ConfigModule {
+      implicit object config extends Config {
+        def username = "prod"
+        def password = "code"
+      }
+    }
 
-		import ProdConfigModule.config
+    import ProdConfigModule.config
 
-		val db = new Db
+    val db = new Db
 
-		assert(db.connect === "Connected as prod:code")
-	}
+    assert(db.connect === "Connected as prod:code")
+  }
 
-	test("Mock test") {
-		implicit val mockConfig = mock[Config]
-		when(mockConfig.username) thenReturn "mockUser"
-		when(mockConfig.password) thenReturn "mockPass"
+  test("Mock test") {
+    implicit val mockConfig = mock[Config]
+    when(mockConfig.username) thenReturn "mockUser"
+    when(mockConfig.password) thenReturn "mockPass"
 
-		val db = new Db
+    val db = new Db
 
-		assert(db.connect === "Connected as mockUser:mockPass")
-	}
+    assert(db.connect === "Connected as mockUser:mockPass")
+  }
 
-	test("Mock test - option 2") {
-		object MockConfigModule extends ConfigModule {
-			implicit val config = mock[Config]
-			when(config.username) thenReturn "mockUser"
-			when(config.password) thenReturn "mockPass"
-		}
+  test("Mock test - option 2") {
+    object MockConfigModule extends ConfigModule {
+      implicit val config = mock[Config]
+      when(config.username) thenReturn "mockUser"
+      when(config.password) thenReturn "mockPass"
+    }
 
-		import MockConfigModule.config
+    import MockConfigModule.config
 
-		val db = new Db
+    val db = new Db
 
-		assert(db.connect === "Connected as mockUser:mockPass")
-	}
+    assert(db.connect === "Connected as mockUser:mockPass")
+  }
 }

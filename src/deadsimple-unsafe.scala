@@ -18,10 +18,10 @@ package deadsimple
 import service.Config
 
 trait Db {
-	// Dependencies
-	def config: Config = Config
+  // Dependencies
+  def config: Config = Config
 
-	def connect = s"Connected as ${config.username}:${config.password}"
+  def connect = s"Connected as ${config.username}:${config.password}"
 }
 
 object Db extends Db

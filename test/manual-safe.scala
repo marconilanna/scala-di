@@ -22,30 +22,30 @@ import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
 
 class ManualTest extends FunSuite with MockitoSugar {
-	test("Default service") {
-		val db = new Db(Config)
+  test("Default service") {
+    val db = new Db(Config)
 
-		assert(db.connect === "Connected as root:1234")
-	}
+    assert(db.connect === "Connected as root:1234")
+  }
 
-	test("Alternative service") {
-		object ProdConfig extends Config {
-			def username = "prod"
-			def password = "code"
-		}
+  test("Alternative service") {
+    object ProdConfig extends Config {
+      def username = "prod"
+      def password = "code"
+    }
 
-		val db = new Db(ProdConfig)
+    val db = new Db(ProdConfig)
 
-		assert(db.connect === "Connected as prod:code")
-	}
+    assert(db.connect === "Connected as prod:code")
+  }
 
-	test("Mock test") {
-		val mockConfig = mock[Config]
-		when(mockConfig.username) thenReturn "mockUser"
-		when(mockConfig.password) thenReturn "mockPass"
+  test("Mock test") {
+    val mockConfig = mock[Config]
+    when(mockConfig.username) thenReturn "mockUser"
+    when(mockConfig.password) thenReturn "mockPass"
 
-		val db = new Db(mockConfig)
+    val db = new Db(mockConfig)
 
-		assert(db.connect === "Connected as mockUser:mockPass")
-	}
+    assert(db.connect === "Connected as mockUser:mockPass")
+  }
 }

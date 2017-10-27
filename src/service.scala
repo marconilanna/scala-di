@@ -16,11 +16,11 @@
 package service
 
 trait Config {
-	def username: String
-	def password: String
+  def username: String
+  def password: String
 }
 
 object Config extends Config {
-	def username = "root"
-	def password = "1234"
+  def username = "root"
+  def password = "1234"
 }

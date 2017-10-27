@@ -18,5 +18,5 @@ package manual
 import service.Config
 
 class Db(config: Config = Config) {
-	def connect = s"Connected as ${config.username}:${config.password}"
+  def connect = s"Connected as ${config.username}:${config.password}"
 }

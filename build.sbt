@@ -13,27 +13,27 @@ scalaSource in Test <<= baseDirectory(_ / "test")
 javaSource in Test <<= baseDirectory(_ / "test")
 
 scalacOptions ++= Seq(
-	"-deprecation"          // Emit warning and location for usages of deprecated APIs
+  "-deprecation"          // Emit warning and location for usages of deprecated APIs
 ,
-	"-encoding", "UTF-8"    // Specify character encoding used by source files
+  "-encoding", "UTF-8"    // Specify character encoding used by source files
 ,
-	"-feature"              // Emit warning and location for usages of features that should be imported explicitly
+  "-feature"              // Emit warning and location for usages of features that should be imported explicitly
 ,
-	"-unchecked"            // Enable additional warnings where generated code depends on assumptions
+  "-unchecked"            // Enable additional warnings where generated code depends on assumptions
 ,
-	"-Xfatal-warnings"      // Fail the compilation if there are any warnings
+  "-Xfatal-warnings"      // Fail the compilation if there are any warnings
 ,
-	"-Xlint:_"              // Enable all specific warnings (see list below)
+  "-Xlint:_"              // Enable all specific warnings (see list below)
 ,
-	"-Yno-adapted-args"     // Do not adapt an argument list to match the receiver
+  "-Yno-adapted-args"     // Do not adapt an argument list to match the receiver
 ,
-	"-Ywarn-dead-code"      // Warn when dead code is identified
+  "-Ywarn-dead-code"      // Warn when dead code is identified
 ,
-	"-Ywarn-unused"         // Warn when local and private vals, vars, defs, and types are are unused
+  "-Ywarn-unused"         // Warn when local and private vals, vars, defs, and types are are unused
 ,
-	"-Ywarn-unused-import"  // Warn when imports are unused
+  "-Ywarn-unused-import"  // Warn when imports are unused
 ,
-	"-Ywarn-value-discard"  // Warn when non-Unit expression results are unused
+  "-Ywarn-value-discard"  // Warn when non-Unit expression results are unused
 )
 
 /*
@@ -57,9 +57,9 @@ unsound-match              Pattern match may not be typesafe
 */
 
 libraryDependencies ++= Seq(
-	"org.mockito"                              % "mockito-core"             % "1.10.19"    % "test"
+  "org.mockito"                              % "mockito-core"             % "1.10.19"    % "test"
 ,
-	"org.scalatest"                           %% "scalatest"                % "2.2.3"      % "test"
+  "org.scalatest"                           %% "scalatest"                % "2.2.3"      % "test"
 )
 
 // Improved incremental compilation
